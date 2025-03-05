@@ -9,6 +9,26 @@ import {
 } from 'react-icons/si';
 
 const FullStackContent = () => {
+  // Last updated information
+  const lastUpdated = "2025-03-05 17:17:40";
+  const maintainedBy = "tiwariParth";
+
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1 },
+  };
+
   // Skills for Full Stack
   const skills = [
     { name: 'Next.js', icon: <SiNextdotjs className="skill-icon text-fsNeon-primary" /> },
@@ -31,7 +51,7 @@ const FullStackContent = () => {
       description: 'A full-stack e-commerce solution with Next.js, TypeScript, and Prisma, featuring real-time inventory updates, secure payment processing, and user authentication.',
       technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe API'],
       github: 'https://github.com/tiwariParth/ecommerce-platform',
-      liveDemo: 'https://ecommerce-platform-demo.vercel.app',
+      live: 'https://ecommerce-platform-demo.vercel.app',
       image: '/projects/ecommerce.jpg'
     },
     {
@@ -39,7 +59,7 @@ const FullStackContent = () => {
       description: 'A responsive dashboard for social media analytics with real-time data visualization, custom reporting features, and API integrations with major social platforms.',
       technologies: ['React', 'Express.js', 'MongoDB', 'Socket.io', 'Chart.js'],
       github: 'https://github.com/tiwariParth/social-dashboard',
-      liveDemo: 'https://social-dashboard-demo.vercel.app',
+      live: 'https://social-dashboard-demo.vercel.app',
       image: '/projects/dashboard.jpg'
     },
     {
@@ -47,48 +67,10 @@ const FullStackContent = () => {
       description: 'A collaborative task management application with user authentication, role-based permissions, and real-time updates for team productivity and project tracking.',
       technologies: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'WebSockets'],
       github: 'https://github.com/tiwariParth/task-manager',
-      liveDemo: 'https://task-manager-demo.vercel.app',
+      live: 'https://task-manager-demo.vercel.app',
       image: '/projects/taskmanager.jpg'
     },
   ];
-
-  // Animation variants
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1 },
-  };
-
-  // Project card hover animation
-  const projectCardHover = {
-    rest: {
-      scale: 1,
-      boxShadow: "0 0 0px rgba(14, 255, 255, 0)",
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeIn"
-      }
-    },
-    hover: {
-      scale: 1.02,
-      boxShadow: "0 0 20px rgba(14, 255, 255, 0.5)",
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeOut"
-      }
-    }
-  };
 
   return (
     <div className="space-y-16">
@@ -115,35 +97,38 @@ const FullStackContent = () => {
         </motion.div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section - Updated to match DevOpsContent design */}
       <section>
         <h3 className="text-2xl font-bold mb-8 text-center text-fsNeon-primary">Featured Projects</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="card card-fs overflow-hidden group"
-              variants={projectCardHover}
-              initial="rest"
-              whileHover="hover"
+              variants={item}
+              className="card card-fs group h-full flex flex-col"
             >
-              <div className="h-48 bg-fsNeon-dark relative overflow-hidden mb-4">
-                <div className="absolute inset-0 bg-gradient-to-tr from-fsNeon-primary/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-fsNeon-dark to-transparent"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-fsNeon-primary">{project.title.charAt(0)}</span>
+              <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg bg-gray-900">
+                <div className="absolute inset-0 flex items-center justify-center text-fsNeon-primary opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-full h-full bg-gradient-to-tr from-fsNeon-dark to-fsNeon-primary/30 flex items-center justify-center">
+                    <span className="text-2xl font-bold">{project.title.charAt(0)}</span>
+                  </div>
                 </div>
               </div>
               
               <h4 className="text-xl font-bold mb-2 text-fsNeon-primary">{project.title}</h4>
-              <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
+              <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
               
               <div className="mb-4">
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span 
-                      key={techIndex}
-                      className="text-xs px-2 py-1 rounded-full bg-fsNeon-primary/10 text-fsNeon-primary border border-fsNeon-primary/30"
+                      key={techIndex} 
+                      className="text-xs px-2 py-1 rounded-full bg-fsNeon-primary/20 text-fsNeon-primary"
                     >
                       {tech}
                     </span>
@@ -151,29 +136,27 @@ const FullStackContent = () => {
                 </div>
               </div>
               
-              <div className="flex justify-between items-center pt-2 border-t border-fsNeon-primary/20">
+              <div className="flex gap-4 mt-auto">
                 <a 
-                  href={project.github}
+                  href={project.github} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-fsNeon-light hover:text-fsNeon-primary transition-colors"
+                  className="flex items-center text-sm font-medium text-fsNeon-light hover:text-fsNeon-primary transition-colors"
                 >
-                  <FaGithub className="mr-1" />
-                  <span className="text-sm">Code</span>
+                  <FaGithub className="mr-1" /> GitHub
                 </a>
                 <a 
-                  href={project.liveDemo}
+                  href={project.live} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-fsNeon-light hover:text-fsNeon-primary transition-colors"
+                  className="flex items-center text-sm font-medium text-fsNeon-light hover:text-fsNeon-primary transition-colors"
                 >
-                  <span className="text-sm">Live Demo</span>
-                  <FaExternalLinkAlt className="ml-1 h-3 w-3" />
+                  <FaExternalLinkAlt className="mr-1" /> Live Demo
                 </a>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Experience Section */}
@@ -227,6 +210,12 @@ const FullStackContent = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Metadata section */}
+      <div className="text-xs text-gray-500 text-right">
+        <p>Last updated: {lastUpdated}</p>
+        <p>Maintained by: {maintainedBy}</p>
+      </div>
     </div>
   );
 };
