@@ -44,7 +44,11 @@ const AboutSection = () => {
               {/* Profile Image or Placeholder */}
               <div className="w-full h-full rounded-full bg-gradient-to-br from-fsNeon-primary/80 to-devopsNeon-primary/80 p-1">
                 <div className="w-full h-full rounded-full bg-fsNeon-dark flex items-center justify-center text-xl sm:text-2xl text-fsNeon-primary font-bold">
-                  <img src="/unnamed.png" alt="parth-tiwari" />
+                  <img
+                    src="/unnamed.png"
+                    alt="parth-tiwari"
+                    className="w-full h-full rounded-full bg-fsNeon-dark flex items-center justify-center text-xl sm:text-2xl text-fsNeon-primary font-bold"
+                  />
                 </div>
               </div>
               {/* Enhanced glow effect */}
