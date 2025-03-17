@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "Parth Tiwari - Full Stack Developer & DevOps Engineer",
   description:
     "Portfolio showcasing full stack development and DevOps engineering projects",
+  icons: "/icons8-favicon-48.png",
 };
 
 export default function RootLayout({
