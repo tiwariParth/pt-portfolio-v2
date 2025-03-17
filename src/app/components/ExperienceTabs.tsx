@@ -18,17 +18,17 @@ const ExperienceTabs = ({ activeTab, setActiveTab }: ExperienceTabsProps) => {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-center mb-8 sm:mb-12">
-        <div className="w-full max-w-xs sm:max-w-md inline-flex p-1 rounded-lg bg-gray-800/50 backdrop-blur-sm">
+      <div className="flex justify-center mb-8 sm:mb-12 gap-5">
+        <div className="w-full max-w-xs sm:max-w-md inline-flex p-1 rounded-lg bg-gray-900/70 backdrop-blur-sm ">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex-1 py-2 px-3 sm:px-6 rounded-md font-medium text-sm sm:text-base transition-all duration-300 ${
+              className={`relative flex-1 py-2 px-3 sm:px-6 rounded-md font-medium text-sm sm:text-base cursor-pointer border border-amber-400 transition-all duration-300 ${
                 activeTab === tab.id
                   ? tab.id === "fullstack"
-                    ? "text-fsNeon-dark"
-                    : "text-devopsNeon-dark"
+                    ? "text-blue-600"
+                    : "text-blue-400"
                   : "text-white hover:text-gray-300"
               }`}
             >
