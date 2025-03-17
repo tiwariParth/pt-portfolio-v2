@@ -1,129 +1,26 @@
 @import "tailwindcss";
-@tailwind utilities;
 
 :root {
-  --background-start: #0A0A0F;
-  --background-end: #121218;
-  --primary-glow: #BD4FFF;
-  --secondary-glow: #4FF8FF;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--background-end)
-  ) var(--background-start);
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Gradient background effect */
-.gradient-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background: 
-    radial-gradient(circle at 15% 50%, rgba(189, 79, 255, 0.08), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(79, 248, 255, 0.08), transparent 25%);
-}
-
-/* Neon text effects */
-.neon-text {
-  color: #fff;
-  text-shadow: 
-    0 0 5px var(--primary-glow),
-    0 0 10px var(--primary-glow),
-    0 0 15px var(--primary-glow);
-}
-
-.neon-text-cyan {
-  color: #fff;
-  text-shadow: 
-    0 0 5px var(--secondary-glow),
-    0 0 10px var(--secondary-glow),
-    0 0 15px var(--secondary-glow);
-}
-
-/* Glass effect */
-.glass {
-  background: rgba(26, 26, 35, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Animated gradient border */
-.gradient-border {
-  position: relative;
-  background: #1A1A23;
-  border-radius: 0.5rem;
-  z-index: 1;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(
-    45deg,
-    var(--primary-glow),
-    var(--secondary-glow)
-  );
-  border-radius: 0.6rem;
-  z-index: -1;
-  animation: border-animation 4s linear infinite;
-}
-
-@keyframes border-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background-start);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    var(--primary-glow),
-    var(--secondary-glow)
-  );
-  border-radius: 4px;
-}
-
-/* Glow effects */
-.glow-effect {
-  position: relative;
-}
-
-.glow-effect::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(45deg, 
-    rgba(189, 79, 255, 0.5),
-    rgba(79, 248, 255, 0.5)
-  );
-  filter: blur(5px);
-  z-index: -1;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }

@@ -195,10 +195,10 @@ const DevOpsContent = () => {
   ];
 
   return (
-    <div className="space-y-12 sm:space-y-16">
+    <div className="space-y-12 sm:space-y-16 text-blue-200">
       {/* Skills Section */}
       <section className="px-2 sm:px-4">
-        <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-devopsNeon-primary">
+        <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-devopsNeon-primary text-blue-300">
           Skills & Technologies
         </h3>
         <motion.div
@@ -211,7 +211,7 @@ const DevOpsContent = () => {
             <motion.div
               key={index}
               variants={item}
-              className="flex flex-col items-center p-3 sm:p-4 rounded-lg bg-devopsNeon-dark/40 backdrop-blur-sm border border-devopsNeon-primary/30 hover:border-devopsNeon-primary transition-all duration-300 group"
+              className="flex flex-col items-center p-3 sm:p-4 rounded-lg bg-devopsNeon-dark/40 backdrop-blur-sm border border-devopsNeon-primary/30 hover:border-devopsNeon-primary transition-all duration-300 group "
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <div className="group-hover:scale-110 transition-transform duration-300">

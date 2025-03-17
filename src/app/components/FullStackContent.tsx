@@ -84,6 +84,10 @@ const FullStackContent = () => {
       name: "Tailwind CSS",
       icon: <SiTailwindcss className="skill-icon text-fsNeon-primary" />,
     },
+    {
+      name: "React JS",
+      icon: <SiReact className="skill-icon text-fsNeon-primary" />,
+    },
   ];
 
   // Sample projects for Full Stack
@@ -130,7 +134,7 @@ const FullStackContent = () => {
   ];
 
   return (
-    <div className="space-y-12 sm:space-y-16">
+    <div className="space-y-12 sm:space-y-16 text-orange-100">
       {/* Skills Section */}
       <section className="px-2 sm:px-4">
         <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-fsNeon-primary">

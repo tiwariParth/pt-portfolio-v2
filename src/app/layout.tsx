@@ -28,26 +28,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={spaceGrotesk.className}>
-        {/* Gradient background */}
-        <div className="gradient-bg" />
-
-        {/* Animated spotlight effect */}
-        <div className="fixed inset-0 bg-gradient-spotlight from-purple-500/5 via-transparent to-transparent z-0" />
-
-        {/* Main content */}
-        <div className="relative z-10">
-          <Navbar />
-          <main className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
-            {children}
-          </main>
-          <Footer />
-        </div>
+      <body
+        className={` bg-[#050718] text-green-200 min-h-screen flex flex-col`}
+      >
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );

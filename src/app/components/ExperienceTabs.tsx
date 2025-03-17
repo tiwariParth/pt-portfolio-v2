@@ -24,11 +24,11 @@ const ExperienceTabs = ({ activeTab, setActiveTab }: ExperienceTabsProps) => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex-1 py-2 px-3 sm:px-6 rounded-md font-medium text-sm sm:text-base cursor-pointer border border-amber-400 transition-all duration-300 ${
+              className={`relative flex-1 py-2 px-3 sm:px-6 rounded-md font-medium text-sm sm:text-base cursor-pointer border transition-all duration-300 ${
                 activeTab === tab.id
                   ? tab.id === "fullstack"
-                    ? "text-blue-600"
-                    : "text-blue-400"
+                    ? "text-orange-200 "
+                    : "text-blue-200"
                   : "text-white hover:text-gray-300"
               }`}
             >
